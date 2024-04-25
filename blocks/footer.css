@@ -1,7 +1,7 @@
 .footer__copyright {
   width: 318px;
   height: 18px;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 21.78px;
   font-weight: 400;
@@ -16,16 +16,16 @@
 }
 
 @media screen and (max-width: 620px) {
-    .footer__copyright {
-        font-size: 14px;
-        line-height: 16.94px;
-        width: 282px;
-        height: 14px;
-        padding-top: 48px;
-        line-height: 16.94px;
-    }
+  .footer__copyright {
+    font-size: 14px;
+    line-height: 16.94px;
+    width: 282px;
+    height: 14px;
+    padding-top: 48px;
+    line-height: 16.94px;
+  }
 
-    .footer {
-        margin-bottom: 36px;
-    }
+  .footer {
+    margin-bottom: 36px;
+  }
 }

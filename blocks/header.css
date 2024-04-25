@@ -12,15 +12,6 @@
   height: 33px;
 }
 
-/* @media screen and (max-width: 879px) {
-  .header__logo {
-    padding-top: 45px;
-    padding-bottom: 41px;
-    min-width: 173px;
-    height: 33px;
-  }
-} */
-
 @media screen and (max-width: 620px) {
   .header__logo {
     padding: 0;
