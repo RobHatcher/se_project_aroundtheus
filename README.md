@@ -17,5 +17,10 @@ This project is made so all the elements are displayed correctly on popular scre
 **Images**  
   
 The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+
+**Video Explaination for Project 3**
+
+To view a brief explaination of the project, its layout, BEM and fonts. Click the link below!
+https://drive.google.com/file/d/18pelE56gD2U3R86qbeb9DBkov8lqNu5P/view?usp=sharing
   
 Good luck and have fun!
