@@ -3,6 +3,7 @@
   max-width: 880px;
   border-bottom: 1px solid;
   border-color: #545454;
+  opacity: 0.7;
 }
 
 .header__logo {

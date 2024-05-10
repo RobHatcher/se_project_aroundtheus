@@ -4,11 +4,12 @@
 }
 
 .page__section {
-  max-width: 880px;
+  max-width: 882px;
   width: 100%;
   position: relative;
   margin: 0 auto;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .page__content {
@@ -30,10 +31,8 @@
 
   .page__section {
     max-width: 282px;
-    padding: 0;
     margin-left: 19px;
     margin-right: 19px;
-    margin-top: 0;
     position: relative;
   }
 }

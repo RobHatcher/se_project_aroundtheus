@@ -1,6 +1,5 @@
 .footer__copyright {
-  width: 318px;
-  height: 18px;
+  max-width: 318px;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 21.78px;
@@ -8,6 +7,7 @@
   color: #545454;
   padding-top: 67px;
   text-align: left;
+  margin-top: 0;
   margin-bottom: 60px;
 }
 
@@ -19,8 +19,7 @@
   .footer__copyright {
     font-size: 14px;
     line-height: 16.94px;
-    width: 282px;
-    height: 14px;
+    max-width: 282px;
     padding-top: 48px;
     line-height: 16.94px;
   }

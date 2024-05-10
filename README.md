@@ -1,26 +1,14 @@
-# Project 3: Around The U.S.
+# Project 3: Around The U.S. by Rob Hatcher
 
-### Overview  
+**Description**
 
-* Intro  
-* Figma  
-* Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)  
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+Project 3 was an opportunity for me to use all the new knowledge I had aquired and apply it to a blank slate on VS.Code. I was able to use newly learned properties such as, Display: Grid, and Media Queries to adjust the design of the site according to the screen size. Each media querie has its own unique features that allows the structure of the website stay consistent and clean as the screen size changes.
+
+**Improvements**
+
+List of improvements: - Add navigation bar - Add descriptions for photos - Add GPS map for locations - Add hashtags for similar posts
 
 **Video Explaination for Project 3**
 
 To view a brief explaination of the project, its layout, BEM and fonts. Click the link below!
 https://drive.google.com/file/d/18pelE56gD2U3R86qbeb9DBkov8lqNu5P/view?usp=sharing
-  
-Good luck and have fun!
