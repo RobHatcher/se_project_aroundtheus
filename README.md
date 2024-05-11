@@ -12,3 +12,7 @@ List of improvements: - Add navigation bar - Add descriptions for photos - Add G
 
 To view a brief explaination of the project, its layout, BEM and fonts. Click the link below!
 https://drive.google.com/file/d/18pelE56gD2U3R86qbeb9DBkov8lqNu5P/view?usp=sharing
+
+**Github Repository**
+
+https://github.com/RobHatcher/se_project_aroundtheus.git 
