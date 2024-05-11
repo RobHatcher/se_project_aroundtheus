@@ -28,11 +28,4 @@
   .page {
     padding: 0;
   }
-
-  .page__section {
-    max-width: 282px;
-    margin-left: 19px;
-    margin-right: 19px;
-    position: relative;
-  }
 }

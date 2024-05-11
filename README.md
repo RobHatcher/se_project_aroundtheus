@@ -1,4 +1,4 @@
-# Project 3: Around The U.S. by Rob Hatcher
+# Project 3: Around The U.S. by Robert Hatcher
 
 **Description**
 
