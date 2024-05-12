@@ -17,9 +17,8 @@
   height: 24px;
   width: 24px;
   grid-area: button;
-  border: 1px;
+  border: 1px solid #fff;
   margin-right: 20px;
-  border-color: #ffffff;
 }
 
 .profile__edit-button:hover {
@@ -116,7 +115,6 @@
   .profile__edit-button {
     width: 18px;
     height: 18px;
-    border: 1px solid #fff;
   }
 
   .profile__image {
