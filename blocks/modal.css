@@ -5,8 +5,12 @@
     right: 0;
     bottom: 0;
     z-index: 999;
-    display: flex;
+    display: none;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__opened {
+    display: flex;
 }
 
 .modal__container {
@@ -80,6 +84,10 @@
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.modal__close:hover {
+    opacity: 0.2;
 }
 
 @media screen and (max-width: 620px) {
