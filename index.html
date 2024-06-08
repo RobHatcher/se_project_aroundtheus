@@ -44,7 +44,7 @@
         <p class="footer__copyright">&copy; 2022 Around the U.S.</p>
       </footer>
     </div>
-
+    <!-- Edit Modal-->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button
@@ -73,9 +73,48 @@
       </div>
     </div>
 
+    <!-- Add Card Modal-->
+    <div class="modal" id="add-card-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="add-modal-close"
+          type="button"
+        ></button>
+        <h2 class="modal__heading">New Place</h2>
+        <form class="modal__form" id="add-card-form">
+          <input
+            class="modal__input modal__input_type_title"
+            placeholder="Title"
+            id="profile-title-input"
+            type="text"
+            name="title"
+          />
+          <input
+            class="modal__input modal__input_type_url"
+            placeholder="Image URL"
+            id="profile-description-input"
+            type="text"
+            name="url"
+          />
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Card image preview Modal -->
+    <div class="modal" id="card-image-modal">
+      <div class="modal__container" id="card-image-modal-container">
+        <button class="modal__close" id="card-image-modal-close"></button>
+        <img src="" alt="" class="modal__image" id="modal-image">
+        <h2 class="modal__title" id="modal-title"></h2>
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="card">
-        <img src="" alt="" class="card__image" />
+          <img src="" alt="" class="card__image" />
+          <button class="card__delete-button" type="button"></button>
         <div class="card__description">
           <h2 class="card__text"></h2>
           <button type="button" class="card__like-button"></button>

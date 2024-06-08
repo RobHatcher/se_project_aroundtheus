@@ -5,12 +5,18 @@
   right: 0;
   bottom: 0;
   z-index: 999;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal_opened {
   display: flex;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear, visibility 0.5s linear;
+  transition-delay: 0s;
 }
 
 .modal__container {
@@ -93,6 +99,28 @@
   opacity: 0.8;
 }
 
+#card-image-modal-container {
+  background-color: transparent;
+}
+
+#modal-image {
+  max-width: 75vw;
+  max-height: 75vh;
+  width: 433px;
+  height: 540px;
+  top: 90px;
+  left: 424px;
+  border-radius: 0;
+}
+
+#modal-title {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #fff;
+  margin: 10px 0 0 0;
+}
+
 @media screen and (max-width: 620px) {
   .modal__container {
     width: 282px;
@@ -127,4 +155,12 @@
     left: 260px;
     top: -40px;
   }
+
+#modal-image {
+  width: 240px;
+  height: 299px;
+  top: 136px;
+  left: 40px;
+}
+
 }
