@@ -7,16 +7,16 @@
   z-index: 999;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s 0.5s, opacity 0.5s linear;
+  transition: visibility 0.5s, opacity 0.5s linear;
   background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
 }
 
 .modal_opened {
-  display: flex;
   visibility: visible;
   opacity: 1;
-  transition: opacity 0.5s linear, visibility 0.5s linear;
-  transition-delay: 0s;
+  /* transition: opacity 0.5s linear, visibility 0.5s linear;
+  transition-delay: 0s; */
 }
 
 .modal__container {
@@ -156,11 +156,10 @@
     top: -40px;
   }
 
-#modal-image {
-  width: 240px;
-  height: 299px;
-  top: 136px;
-  left: 40px;
-}
-
+  #modal-image {
+    width: 240px;
+    height: 299px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
