@@ -114,9 +114,6 @@ function getCardElement(cardData) {
     cardImageModalTitle.textContent = cardData.name;
     openModal(cardImageModal);
   });
-  cardImageModalClose.addEventListener("click", () =>
-    closeModal()
-  );
 
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
@@ -137,5 +134,6 @@ profileModalClose.addEventListener("click", () => closeModal(profileEditModal));
 // add new card
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 addCardModalClose.addEventListener("click", () => closeModal(addCardModal));
+cardImageModalClose.addEventListener("click", () => closeModal(cardImageModal));
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
