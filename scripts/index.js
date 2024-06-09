@@ -115,7 +115,7 @@ function getCardElement(cardData) {
     openModal(cardImageModal);
   });
   cardImageModalClose.addEventListener("click", () =>
-    closeModal(cardImageModal)
+    closeModal()
   );
 
   cardImageEl.src = cardData.link;
