@@ -15,8 +15,6 @@
 .modal_opened {
   visibility: visible;
   opacity: 1;
-  /* transition: opacity 0.5s linear, visibility 0.5s linear;
-  transition-delay: 0s; */
 }
 
 .modal__container {
@@ -62,6 +60,33 @@
   margin-top: 34px;
 }
 
+.modal__label {
+  position: relative;
+  width: 100%;
+}
+
+.modal__error {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #ff0000;
+  padding: 0;
+  margin: 5px 0;
+  top: 35px;
+  position: absolute;
+  display: block;
+  width: 385px;
+}
+
+.modal__input_type_error:invalid {
+  border-bottom: 1px solid #ff0000;
+}
+
+.modal__error_visable {
+  visibility: visable;
+}
+
 .modal__button {
   width: 100%;
   height: 50.15px;
@@ -78,6 +103,13 @@
 
 .modal__button:hover {
   opacity: 0.8;
+}
+
+.modal__button_disabled {
+  background: #fff;
+  opacity: 20%;
+  color: #000;
+  border: solid 1xp;
 }
 
 .modal__close {

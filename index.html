@@ -44,6 +44,7 @@
         <p class="footer__copyright">&copy; 2022 Around the U.S.</p>
       </footer>
     </div>
+
     <!-- Edit Modal-->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
@@ -53,22 +54,39 @@
           type="button"
         ></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form">
-          <input
-            class="modal__input"
-            placeholder="Name"
-            id="profile-title-input"
-            type="text"
-            name="title"
-          />
-          <input
-            class="modal__input"
-            placeholder="Bio"
-            id="profile-description-input"
-            type="text"
-            name="description"
-          />
-          <button class="modal__button" type="submit">Save</button>
+        <form class="modal__form" id="profile-form">
+          <label for="modal-title-input" class="modal__label">
+            <input
+              class="modal__input modal__input_type_error"
+              placeholder="Name"
+              id="profile-title-input"
+              type="text"
+              name="title"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="modal__error" id="profile-title-input-error"></span>
+          </label>
+          <label for="modal-discription-input" class="modal__label">
+            <input
+              class="modal__input modal__input_type_error"
+              placeholder="Bio"
+              id="profile-description-input"
+              type="text"
+              name="description"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span
+              class="modal__error"
+              id="profile-description-input-error"
+            ></span>
+          </label>
+          <button class="modal__button" type="submit" id="modal-button-save">
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -83,21 +101,41 @@
         ></button>
         <h2 class="modal__heading">New Place</h2>
         <form class="modal__form" id="add-card-form">
-          <input
-            class="modal__input modal__input_type_title"
-            placeholder="Title"
-            id="profile-title-input"
-            type="text"
-            name="title"
-          />
-          <input
-            class="modal__input modal__input_type_url"
-            placeholder="Image URL"
-            id="profile-description-input"
-            type="text"
-            name="url"
-          />
-          <button class="modal__button" type="submit">Save</button>
+          <label for="modal-card-title-input" class="modal__label">
+            <input
+              class="modal__input modal__input_type_title"
+              placeholder="Title"
+              id="profile-title-input"
+              type="text"
+              name="title"
+              minlength="1"
+              maxlength="30"
+              required
+            />
+            <span class="modal__error" id="profile-title-input-error"></span>
+          </label>
+          <label for="modal-card-url-input" class="modal__label">
+            <input
+              class="modal__input modal__input_type_url"
+              placeholder="Image URL"
+              id="profile-description-input"
+              type="url"
+              name="url"
+              required
+            />
+            <span
+              class="modal__error"
+              id="profile-description-input-error"
+            ></span>
+          </label>
+          <button
+            class="modal__button modal__button_disabled"
+            type="submit"
+            id="modal-button-new"
+            disabled
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -123,5 +161,6 @@
     </template>
 
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
   </body>
 </html>
