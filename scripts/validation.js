@@ -39,16 +39,16 @@ function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
 }
 
 function setEventListeners(formEl, options) {
-  const { inputSelector } = options;
-  const inputEls = [...formEl.querySelectorAll(inputSelector)];
-  const submitButton = formEl.querySelector(".modal__button");
-  inputEls.forEach((inputEl) => {
-    inputEl.addEventListener("input", (e) => {
-      checkInputValidity(formEl, inputEl, options);
-      toggleButtonState(inputEls, submitButton, options);
+    const { inputSelector, submitButtonSelector } = options;
+    const inputEls = [...formEl.querySelectorAll(inputSelector)];
+    const submitButton = formEl.querySelector(submitButtonSelector);
+    inputEls.forEach((inputEl) => {
+      inputEl.addEventListener("input", (e) => {
+        checkInputValidity(formEl, inputEl, options);
+        toggleButtonState(inputEls, submitButton, options);
+      });
     });
-  });
-}
+  }
 
 function enableValidation(options) {
   const formEls = [...document.querySelectorAll(options.formSelector)];
