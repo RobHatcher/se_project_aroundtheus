@@ -175,16 +175,18 @@
 
   .modal__input {
     height: 37px;
+    width: 233px;
   }
 
   .modal__button {
     height: 46px;
+    width: 238px;
   }
 
   .modal__close {
     width: 26px;
     height: 26px;
-    left: 260px;
+    left: 255px;
     top: -40px;
   }
 
