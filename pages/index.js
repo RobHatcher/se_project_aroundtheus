@@ -34,6 +34,9 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
+const wrapper = document.querySelector('.modal__container');
+renderCard(cardData, wrapper);
+
 const card = new Card(cardData, "#card-template");
 card.getView();
 
@@ -124,7 +127,7 @@ function closeModalByPressingESCKey(evt) {
 }
 
 function renderCard(cardData, wrapper) {
-  const card = new Card(cardData, cardSelector);
+  const card = new Card(cardData, "#card-template");
   wrapper.prepend(card.getView());
 }
 

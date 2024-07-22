@@ -1,9 +1,9 @@
 export default class Card {
-  constructor(cardData, cardSelector, handleImageClick) {
+  constructor(cardData, cardSelector) {
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
-    this._handleImageClick = handleImageClick;
+    
   }
 
   // Event Listeners
@@ -49,6 +49,12 @@ export default class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+
+      this._cardElement.querySelector('.card__text').textContent = this._name;
+      const cardImage = this._cardElement.querySelector('.card__image');
+      cardImage.src = this._link;
+      cardImage.alt = this._name;
+
     this._setEventListeners();
     return this._cardElement;
   }
