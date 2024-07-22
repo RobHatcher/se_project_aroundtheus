@@ -1,4 +1,4 @@
-// enabling validation by calling enableValidation()
+/*// enabling validation by calling enableValidation()
 // pass all the settings on call
 
 function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
@@ -70,4 +70,4 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-enableValidation(config);
+enableValidation(config);*/

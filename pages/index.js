@@ -1,3 +1,6 @@
+import Card from "../components/Card.js";
+import FormValidator from "../components/Formvalidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -25,9 +28,15 @@ const initialCards = [
   },
 ];
 
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
+// Card
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
+
+const card = new Card(cardData, "#card-template");
+card.getView();
+
 
 /* Wrappers */
 const cardsWrap = document.querySelector(".cards__list");
@@ -61,6 +70,25 @@ const cardTitleInput = addCardFormElement.querySelector(
   ".modal__input_type_title"
 );
 const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
+
+/* Validation */
+
+const validationConfig = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const editFormElement = profileEditModal.querySelector('.modal__form');
+const addFormElement = addCardModal.querySelector('.modal__form');
+
+const editFormValidator = new FormValidator(validationConfig, editFormElement);
+const addFormValidator = new FormValidator(validationConfig, addFormElement);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
 
 /* Functions */
 
@@ -96,8 +124,8 @@ function closeModalByPressingESCKey(evt) {
 }
 
 function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
+  const card = new Card(cardData, cardSelector);
+  wrapper.prepend(card.getView());
 }
 
 function handleProfileEditSubmit(e) {
@@ -116,12 +144,12 @@ function handleAddCardFormSubmit(e) {
   closeModal(addCardModal);
 }
 
-function getCardElement(cardData) {
+ /* function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__text");
   const likeButton = cardElement.querySelector(".card__like-button");
-  likeButton.addEventListener("click", () => {
+   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
@@ -140,7 +168,7 @@ function getCardElement(cardData) {
   cardTitleEl.textContent = cardData.name;
 
   return cardElement;
-}
+}*/
 
 /* Form Listeners */
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
