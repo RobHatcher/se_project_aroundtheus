@@ -3,10 +3,6 @@ import FormValidator from "../components/Formvalidator.js";
 
 const initialCards = [
   {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
     name: "Lake Louise",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
   },
@@ -34,22 +30,20 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const wrapper = document.querySelector('.modal__container');
-renderCard(cardData, wrapper);
-
 const card = new Card(cardData, "#card-template");
-card.getView();
+const cardElement = card.getView();
 
 
 /* Wrappers */
 const cardsWrap = document.querySelector(".cards__list");
+cardsWrap.prepend(cardElement);
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
 const cardImageModal = document.querySelector("#card-image-modal");
-const cardImageModalImage = document.querySelector("#modal-image");
-const cardImageModalTitle = document.querySelector("#modal-title");
+//const cardImageModalImage = document.querySelector("#modal-image");
+//const cardImageModalTitle = document.querySelector("#modal-title");
 
 /* Buttons and other DOM nodes */
 const profileEditButton = document.querySelector("#profile-edit-button");
