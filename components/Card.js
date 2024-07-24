@@ -1,14 +1,15 @@
 export default class Card {
-  constructor(cardData, cardSelector) {
+  constructor(cardData, cardSelector, handleImageClick) {
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
+    this._handleImageClick = handleImageClick;
 
-    this._handleImageClick = function (cardElement) {
-      cardElement.src = this._link;
-      cardElement.textContent = this._name;
-      cardElement.classList.add("modal_opened");
-    };
+    // this._handleImageClick = function (cardElement) {
+    //   cardElement.src = this._link;
+    //   cardElement.textContent = this._name;
+    //   cardElement.classList.add("modal_opened");
+    // };
   }
 
   // Event Listeners
@@ -27,7 +28,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleImageClick(this._cardElement);
+        this._handleImageClick(this._link, this._name);
       });
   }
 
