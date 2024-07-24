@@ -1,16 +1,14 @@
-const modalElement = document.querySelector(".modal");
-const modalImage = document.querySelector(".modal__image");
-const cardImageModal = document.querySelector("#card-image-modal");
-const modalCloseButton = cardImageModal.querySelector(
-  "#card-image-modal-close"
-);
-const cardImageModalTitle = document.querySelector("#modal-title");
-
 export default class Card {
   constructor(cardData, cardSelector) {
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
+
+    this._handleImageClick = function (cardElement) {
+      cardElement.src = this._link;
+      cardElement.textContent = this._name;
+      cardElement.classList.add("modal_opened");
+    };
   }
 
   // Event Listeners
@@ -20,21 +18,17 @@ export default class Card {
       this._handleLikeIcon();
     });
 
-    const deleteButton = this._cardElement
+    this._cardElement
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
         this._handleDeleteCard();
       });
 
-    const imagePreview = this._cardElement
+    this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleOpenModal(this._cardElement);
+        this._handleImageClick(this._cardElement);
       });
-
-    modalCloseButton.addEventListener("click", () => {
-      this._handleCloseModal();
-    });
   }
 
   // Handlers
@@ -47,17 +41,6 @@ export default class Card {
   _handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
-  }
-
-  _handleOpenModal() {
-    modalImage.src = this._link;
-    cardImageModalTitle.textContent = this._name;
-    cardImageModal.classList.add("modal_opened");
-  }
-
-  _handleCloseModal() {
-    //modalImage.src = "";
-    modalElement.classList.remove("modal_opened");
   }
 
   getView() {
