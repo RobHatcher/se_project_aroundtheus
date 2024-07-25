@@ -35,8 +35,8 @@ const addCardModal = document.querySelector("#add-card-modal");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
 const cardImageModal = document.querySelector("#card-image-modal");
-// const cardImageModalImage = document.querySelector("#modal-image");
-// const cardImageModalTitle = document.querySelector("#modal-title");
+const cardImageModalImage = document.querySelector("#modal-image");
+const cardImageModalTitle = document.querySelector("#modal-title");
 
 /* Buttons and other DOM nodes */
 const profileEditButton = document.querySelector("#profile-edit-button");
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  resetModalForm(modal); 
+  // resetModalForm(modal); 
 
   document.removeEventListener("keydown", closeModalByPressingESCKey);
 }
@@ -126,10 +126,8 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
-  toggleButtonState(
-    [profileTitleInput, profileDescriptionInput],
-    editProfileSubmitButton
-  );
+  e.target.reset();
+  editFormValidator.resetValidation();
 }
 
 function handleAddCardFormSubmit(e) {
@@ -138,44 +136,16 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   e.target.reset();
   renderCard({ name, link }, cardsWrap);
+  addFormValidator.resetValidation();
   closeModal(addCardModal);
-  toggleButtonState(
-    [profileTitleInput, profileDescriptionInput],
-    editProfileSubmitButton
-  );
 }
 
 const handleImageClick = (link, name) => {
-  const modalImage = document.querySelector(".modal__image");
-  const modalTitle = document.querySelector(".modal__title");
-  const modalElement = document.querySelector("#card-image-modal");
-
-  modalImage.src = link;
-  modalImage.alt = name;
-  modalTitle.textContent = name;
-  openModal(modalElement);
+  cardImageModalImage.src = link;
+  cardImageModalImage.alt = name;
+  cardImageModalTitle.textContent = name;
+  openModal(cardImageModal);
 };
-
-//Dot rec Code
-function toggleButtonState(inputs, button) {
-  const isValid = Array.from(inputs).every(
-    (input) => input.value.trim() !== ""
-  );
-  button.disabled = !isValid;
-  button.classList.toggle("modal__button_disabled", !isValid);
-}
-
-function resetModalForm(modal) {
-  const form = modal.querySelector('form');
-  if (form) {
-    form.reset();
-    const inputs = Array.from(form.querySelectorAll('input'));
-    const submitButton = form.querySelector('.modal__save');
-    toggleButtonState(inputs, submitButton);
-  }
-}
-
-const editProfileSubmitButton = profileEditForm.querySelector(".modal__save");
 
 /* Form Listeners */
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
