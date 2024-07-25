@@ -71,11 +71,8 @@ const validationConfig = {
   errorClass: "modal__error_visible",
 };
 
-const editFormElement = profileEditModal.querySelector(".modal__form");
-const addFormElement = addCardModal.querySelector(".modal__form");
-
-const editFormValidator = new FormValidator(validationConfig, editFormElement);
-const addFormValidator = new FormValidator(validationConfig, addFormElement);
+const editFormValidator = new FormValidator(validationConfig, profileEditForm);
+const addFormValidator = new FormValidator(validationConfig, addCardFormElement);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
@@ -96,14 +93,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  if (modal.contains(addCardFormElement)) {
-    addCardFormElement.reset();
-    toggleButtonState([cardTitleInput, cardUrlInput], addCardSubmitButton);
-  }
-  if (modal.contains(profileEditForm)) {
-    profileEditForm.reset();
-    toggleButtonState([profileTitleInput, profileDescriptionInput], editProfileSubmitButton);
-  }
+  resetModalForm(modal); 
 
   document.removeEventListener("keydown", closeModalByPressingESCKey);
 }
@@ -161,8 +151,9 @@ const handleImageClick = (link, name) => {
   const modalElement = document.querySelector("#card-image-modal");
 
   modalImage.src = link;
+  modalImage.alt = name;
   modalTitle.textContent = name;
-  modalElement.classList.add("modal_opened");
+  openModal(modalElement);
 };
 
 //Dot rec Code
@@ -174,21 +165,17 @@ function toggleButtonState(inputs, button) {
   button.classList.toggle("modal__button_disabled", !isValid);
 }
 
-const addCardSubmitButton = addCardFormElement.querySelector(".modal__save");
+function resetModalForm(modal) {
+  const form = modal.querySelector('form');
+  if (form) {
+    form.reset();
+    const inputs = Array.from(form.querySelectorAll('input'));
+    const submitButton = form.querySelector('.modal__save');
+    toggleButtonState(inputs, submitButton);
+  }
+}
+
 const editProfileSubmitButton = profileEditForm.querySelector(".modal__save");
-
-// Event listeners for inputs in Add Card form
-addCardFormElement.addEventListener("input", () => {
-  toggleButtonState([cardTitleInput, cardUrlInput], addCardSubmitButton);
-});
-
-// Event listeners for inputs in Edit Profile form
-profileEditForm.addEventListener("input", () => {
-  toggleButtonState(
-    [profileTitleInput, profileDescriptionInput],
-    editProfileSubmitButton
-  );
-});
 
 /* Form Listeners */
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);

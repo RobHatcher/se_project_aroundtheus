@@ -4,12 +4,6 @@ export default class Card {
     this._link = cardData.link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
-
-    // this._handleImageClick = function (cardElement) {
-    //   cardElement.src = this._link;
-    //   cardElement.textContent = this._name;
-    //   cardElement.classList.add("modal_opened");
-    // };
   }
 
   // Event Listeners
