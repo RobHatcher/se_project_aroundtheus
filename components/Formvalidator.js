@@ -8,9 +8,12 @@ export default class FormValidator {
 
     this._formElement = formEl;
 
-    this._inputEls = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-    this._submitButton = this._formElement.querySelector(this._submitButtonSelector);
-
+    this._inputEls = Array.from(
+      this._formElement.querySelectorAll(this._inputSelector)
+    );
+    this._submitButton = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
   }
 
   _showInputError(inputEl) {
@@ -39,39 +42,39 @@ export default class FormValidator {
     }
   }
 
-  _toggleButtonState() {
-   const isValid = this._inputEls.every((inputEl) => inputEl.validity.valid);
-   if (isValid) {
-    this._submitButton.classList.remove(this._inactiveButtonClass);
-    this._submitButton.disabled = false;
-   } else {
-    this._submitButton.classList.add(this._inactiveButtonClass);
-    this._submitButton.disabled = true;
-   }
+  toggleButtonState() {
+    const isValid = this._inputEls.every((inputEl) => inputEl.validity.valid);
+    if (isValid) {
+      this._submitButton.classList.remove(this._inactiveButtonClass);
+      this._submitButton.disabled = false;
+    } else {
+      this._submitButton.classList.add(this._inactiveButtonClass);
+      this._submitButton.disabled = true;
+    }
   }
 
   _setEventListeners() {
     this._inputEls.forEach((inputEl) => {
-        inputEl.addEventListener("input", () => {
-            this._checkInputValidity(inputEl);
-            this._toggleButtonState();
-        });
+      inputEl.addEventListener("input", () => {
+        this._checkInputValidity(inputEl);
+        this.toggleButtonState();
+      });
     });
 
     this._formElement.addEventListener("submit", (evt) => {
-        evt.preventDefault();
+      evt.preventDefault();
     });
   }
 
   enableValidation() {
     this._setEventListeners();
-    this._toggleButtonState();
+    this.toggleButtonState();
   }
 
   resetValidation() {
     this._inputEls.forEach((inputEl) => {
-        this._hideInputError(inputEl);
+      this._hideInputError(inputEl);
     });
-    this._toggleButtonState();
-}
+    this.toggleButtonState();
+  }
 }
