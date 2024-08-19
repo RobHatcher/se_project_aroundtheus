@@ -7,13 +7,12 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <title>Around the U.S.</title>
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./images/Aroundtheus_logo.svg"
+          src="<%=require('./images/Aroundtheus_logo.svg')%>"
           alt="Around the U.S. logo"
           class="header__logo"
         />
@@ -21,7 +20,7 @@
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./images/Jacques-Cousteau_(1).png"
+            src="<%=require('./images/Jacques-Cousteau_(1).png')%>"
             alt="avatar picture"
             class="profile__image"
           />
@@ -160,6 +159,5 @@
       </li>
     </template>
 
-    <script src="./pages/index.js" defer type="module"></script>
   </body>
 </html>
