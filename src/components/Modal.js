@@ -24,7 +24,7 @@ export default class Modal {
     this._modalElement.addEventListener("click", (evt) => {
       if (
         evt.target.classList.contains("modal_opened") ||
-        evt.target.classlist.contains("modal__close")
+        evt.target.classList.contains("modal__close")
       ) {
         this.close();
       }
