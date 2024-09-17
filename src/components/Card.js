@@ -27,7 +27,7 @@ export default class Card {
         this.handleDeleteCard(this._id, this._cardElement);
       }
       if (target.classList.contains("card__image")) {
-        this.handleImageClick(this._link, this._name);
+        this._handleImageClick(this._link, this._name);
       }
     });
   }
