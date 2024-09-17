@@ -71,11 +71,11 @@ updateUserProfile(userData) {
 }
 
 // Updating profile picture
-updateAvatar(avatar) {
+updateAvatar(avatarUrl) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       headers: this._headers,
       method: "PATCH",
-      body: JSON.stringify(avatar),
+      body: JSON.stringify({ avatarUrl }),
     }).then(this._handleResponse);
 }
 

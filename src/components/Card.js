@@ -18,26 +18,41 @@ export default class Card {
 
   // Event Listeners
   _setEventListeners() {
-    this._cardElement.addEventListener("click", () => {
-      this._cardElement
-        .querySelector(".card__like-button")
-        .addEventListener("click", () => {
-          this.handleLikeClick(this);
-        });
-    });
+    // this._cardElement.addEventListener("click", () => {
+    //   this._cardElement
+    //     .querySelector(".card__like-button")
+    //     .addEventListener("click", () => {
+    //       this.handleLikeClick(this);
+    //     });
+    // });
 
-    this._cardElement
-      .querySelector(".card__delete-button")
-      .addEventListener("click", () => {
+    // this._cardElement
+    //   .querySelector(".card__delete-button")
+    //   .addEventListener("click", () => {
+    //     this.handleDeleteCard(this._id, this._cardElement);
+    //   });
+
+    // this._cardElement
+    //   .querySelector(".card__image")
+    //   .addEventListener("click", () => {
+    //     this._handleImageClick(this._link, this._name);
+    //   });
+    this._cardElement.addEventListener("click", (event) => {
+      const target = event.target;
+      if
+      (target.classList.contains("card__like-button")) {
+        this.handleLikeClick(this);
+      }
+      if
+      (target.classList.contains("card__delete-button")) {
         this.handleDeleteCard(this._id, this._cardElement);
-      });
-
-    this._cardElement
-      .querySelector(".card__image")
-      .addEventListener("click", () => {
-        this._handleImageClick(this._link, this._name);
-      });
-  }
+      }
+      if
+      (target.classList.contains("card__image")) {
+        this.handleImageClick(this._link, this._name);
+    }
+    });
+    }
 
   toggleLike() {
     this._cardElement
@@ -45,12 +60,6 @@ export default class Card {
       .classList.toggle("card__like-button_active");
   }
 
-  // Handlers
-  // _handleLikeIcon() {
-  //   this._cardElement
-  //     .querySelector(".card__like-button")
-  //     .classList.toggle("card__like-button_active");
-  // }
   handleLikeButton(isLiked) {
     if (isLiked !== undefined) {
       this._isLiked = isLiked;

@@ -132,18 +132,24 @@ const addCardModal = new ModalWithForm("#add-card-modal", (data) => {
   const name = data.title.trim();
   const link = data.url.trim();
 
-  api.createCard({ name, link }).then(() => {
-    renderCard({ name, link });
+  return api.createCard({ name, link }).then((res) => {
+    renderCard(res);
     addCardModal.close();
+
     addCardFormElement.reset();
   });
 });
+
 addCardModal.setEventListeners();
 
 // Update Avatar
 const editAvatarModal = new ModalWithForm("#edit-avatar-modal", (formData) => {
-  return api.updateAvatar({ avatar: formData.avatar }).then((userData) => {
-    userInfo.setUserAvatar({ avatar: userData.avatar });
+  const avatarUrl = formData.avatar;
+  return api.updateAvatar(avatarUrl).then((userData) => {
+    userInfo.setUserAvatar(userData.avatar);
+  })
+  .catch((err) => {
+    console.error(`Error Submitting Form: ${err}`);
   });
 });
 
@@ -180,23 +186,23 @@ function handleDeleteCard(cardId, cardElement) {
   deleteModalConfirmation.open(cardId, cardElement);
 }
 
-function handleLikeClick(cardData) {
-  if (cardData._isLiked) {
+function handleLikeClick(card) {
+  if (card._isLiked) {
     api
-      .dislikeCard(cardData._id)
+      .dislikeCard(card._id)
       .then(() => {
-        cardData.toggleLike();
-        cardData._isLiked = false;
+        card.toggleLike();
+        card._isLiked = false;
       })
       .catch((err) => {
         console.error(`Error on Card Dislike ${err}`);
       });
   } else {
     api
-      .likeCard(cardData._id)
+      .likeCard(card._id)
       .then(() => {
-        cardData.toggleLike();
-        cardData._isLiked = true;
+        card.toggleLike();
+        card._isLiked = true;
       })
       .catch((err) => {
         console.error(`Error on Card Like ${err}`);
