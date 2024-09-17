@@ -76,6 +76,38 @@
   margin-right: 24px;
 }
 
+.profile__image:hover {
+  cursor: pointer;
+  opacity: 60%;
+}
+
+.profile__avatar-container {
+  position: relative;
+}
+
+/* Avatar */
+.avatar__edit-icon {
+  background: transparent url(../images/EditAvatarPen.svg) center no-repeat;
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  cursor: pointer;
+  top: 45px;
+  left: 45px;
+  opacity: 0%;
+  border: none;
+  transition: opacity 0.3s linear, background-color 0.3s linear;
+}
+
+.avatar__edit-icon:hover {
+  opacity: 100%;
+}
+
+#edit-avatar-modal-container {
+  width: 430px;
+  height: 272px;
+}
+
 @media screen and (max-width: 620px) {
   .profile {
     flex-direction: column;

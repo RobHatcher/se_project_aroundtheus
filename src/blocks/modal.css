@@ -153,6 +153,20 @@
   color: #fff;
   margin: 10px 0 0 0;
 }
+ /* Confirmation */
+#confirmation-modal {
+  width: 430px;
+  height: 181px;
+} 
+
+#confirmation-modal-button {
+  width: 385px;
+  margin-left: 20px;
+}
+
+#modal-heading-confirm {
+  position: center;
+}
 
 @media screen and (max-width: 620px) {
   .modal__container {
