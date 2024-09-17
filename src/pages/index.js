@@ -25,7 +25,7 @@ const cardTemplate = "#card-template";
 const userInfo = new UserInfo({
   title: ".profile__title",
   description: ".profile__description",
-  avatar: ".profile__image",
+  avatarSelector: ".profile__image",
 });
 
 // Api
@@ -83,16 +83,28 @@ api
   })
   .catch((err) => console.error(err));
 
-api
-  .getUserInfo()
-  .then((userData) => {
-    userInfo.setUserInfo({
-      title: userData.name,
-      description: userData.about,
-      avatar: userData.avatar,
+//Update from Dot
+document.addEventListener("DOMContentLoaded", () => {
+  function initialize() {
+    const userInfo = new UserInfo({
+      title: ".profile__title",
+      description: ".profile__description",
+      avatarSelector: ".profile__image",
     });
-  })
-  .catch((err) => console.error(err));
+
+    api
+      .getUserInfo()
+      .then((userData) => {
+        userInfo.setUserInfo({
+          title: userData.name,
+          description: userData.about,
+          avatar: userData.avatar,
+        });
+      })
+      .catch((err) => console.error(err));
+  }
+  initialize();
+});
 
 // Validation
 const profileEditForm = document.forms["profile-form"];
@@ -145,12 +157,14 @@ addCardModal.setEventListeners();
 // Update Avatar
 const editAvatarModal = new ModalWithForm("#edit-avatar-modal", (formData) => {
   const avatarUrl = formData.avatar;
-  return api.updateAvatar(avatarUrl).then((userData) => {
-    userInfo.setUserAvatar(userData.avatar);
-  })
-  .catch((err) => {
-    console.error(`Error Submitting Form: ${err}`);
-  });
+  return api
+    .updateAvatar(avatarUrl)
+    .then((userData) => {
+      userInfo.setUserAvatar(userData.avatar);
+    })
+    .catch((err) => {
+      console.error(`Error Submitting Form: ${err}`);
+    });
 });
 
 editAvatarButton.addEventListener("click", () => {

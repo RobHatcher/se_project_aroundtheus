@@ -6,13 +6,13 @@ export default class Api {
 
   _handleResponse(res) {
     if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
+      return res.json();
     }
-  
-// Card functions
-// Loading cards from the server
+    return Promise.reject(`Error: ${res.status}`);
+  }
+
+  // Card functions
+  // Loading cards from the server
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
@@ -50,33 +50,32 @@ export default class Api {
       headers: this._headers,
       method: "DELETE",
     }).then(this._handleResponse);
-}
+  }
 
-// Edit Info
-//Loading user information from the server
-getUserInfo() {
+  // Edit Info
+  //Loading user information from the server
+  getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
       method: "GET",
     }).then(this._handleResponse);
-}
+  }
 
-// Editing the profile
-updateUserProfile(userData) {
+  // Editing the profile
+  updateUserProfile(userData) {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
       method: "PATCH",
       body: JSON.stringify(userData),
     }).then(this._handleResponse);
-}
+  }
 
-// Updating profile picture
-updateAvatar(avatarUrl) {
+  // Updating profile picture
+  updateAvatar(avatarUrl) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       headers: this._headers,
       method: "PATCH",
-      body: JSON.stringify({ avatarUrl }),
+      body: JSON.stringify({ avatar: avatarUrl }),
     }).then(this._handleResponse);
-}
-
+  }
 }
