@@ -24,8 +24,9 @@ export default class UserInfo {
   }
 }
 
-const userInfo = new UserInfo({
-  title: ".profile__title",
-  description: ".profile__description",
-  avatarSelector: ".profile__image",
-});
+// removed because not being used (9/19)
+// const userInfo = new UserInfo({
+//   title: ".profile__title",
+//   description: ".profile__description",
+//   avatarSelector: ".profile__image",
+// });

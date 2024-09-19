@@ -134,7 +134,8 @@ const profileEditModal = new ModalWithForm("#profile-edit-modal", (data) => {
         title: data.title,
         description: data.description,
       });
-      profileEditModal.close();
+      // removed because closed in ModalWithForm (9/19)
+      // profileEditModal.close();
     });
 });
 profileEditModal.setEventListeners();
@@ -146,9 +147,10 @@ const addCardModal = new ModalWithForm("#add-card-modal", (data) => {
 
   return api.createCard({ name, link }).then((res) => {
     renderCard(res);
-    addCardModal.close();
+    // removed because closing & reset in ModalWithForm (9/19)
+    // addCardModal.close();
 
-    addCardFormElement.reset();
+    // addCardFormElement.reset();
   });
 });
 
@@ -157,21 +159,21 @@ addCardModal.setEventListeners();
 // Update Avatar
 const editAvatarModal = new ModalWithForm("#edit-avatar-modal", (formData) => {
   const avatarUrl = formData.avatar;
-  return api
-    .updateAvatar(avatarUrl)
-    .then((userData) => {
-      userInfo.setUserAvatar(userData.avatar);
-    })
-    .catch((err) => {
-      console.error(`Error Submitting Form: ${err}`);
-    });
+  return api.updateAvatar(avatarUrl).then((userData) => {
+    userInfo.setUserAvatar(userData.avatar);
+  });
 });
 
 editAvatarButton.addEventListener("click", () => {
+  //added avatarFormValidator to reset button validation on reopening edit avatar modal (9/19)
+  avatarFormValidator.resetValidation();
   editAvatarModal.open();
 
-  editAvatarModal.setEventListeners();
+  //moved to outside the eventListener (9/19)
+  // editAvatarModal.setEventListeners();
 });
+
+editAvatarModal.setEventListeners();
 
 // ModalWithImage
 const cardImageModal = new ModalWithImage("#card-image-modal");
@@ -185,14 +187,13 @@ function handleImageClick(link, name) {
 const deleteModalConfirmation = new ModalConfirmation(
   "#modal-confirm",
   (cardId, cardElement) => {
-    return api
-      .deleteCard(cardId)
-      .then(() => {
-        cardElement.remove();
-      })
-      .catch((err) => {
-        console.error(`Error On Card Deletion ${err}`);
-      });
+    return api.deleteCard(cardId).then(() => {
+      cardElement.remove();
+    });
+    // removed because it is in ModalWithForm (9/19)
+    // .catch((err) => {
+    //   console.error(`Error On Card Deletion ${err}`);
+    // });
   }
 );
 
@@ -201,7 +202,8 @@ function handleDeleteCard(cardId, cardElement) {
 }
 
 function handleLikeClick(card) {
-  if (card._isLiked) {
+  // removed _ on "isLiked" because calling outside of class (9/19)
+  if (card.isLiked) {
     api
       .dislikeCard(card._id)
       .then(() => {
