@@ -4,7 +4,7 @@ import Modal from "./Modal.js";
 export default class ModalConfirmation extends Modal {
   constructor(modalSelector, handleConfirmation) {
     super({ modalSelector });
-    this._confirmButton = document.querySelector("#confirmation-modal");
+    this._confirmButton = document.querySelector("#confirmation-modal-button");
     this._handleConfirmation = handleConfirmation;
     this._setEventListeners();
   }
