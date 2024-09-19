@@ -19,11 +19,15 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/Jacques-Cousteau_(1).png')%>"
-            alt="avatar picture"
-            class="profile__image"
-          />
+          <div class="profile__avatar-container">
+            <img
+              src="<%=require('./images/Jacques-Cousteau_(1).png')%>"
+              alt="avatar picture"
+              class="profile__image"
+            />
+
+            <button class="avatar__edit-icon" type="button"></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -83,7 +87,12 @@
               id="profile-description-input-error"
             ></span>
           </label>
-          <button class="modal__button modal__save modal__button_disabled" type="submit" id="modal-button-save" disabled>
+          <button
+            class="modal__button modal__save modal__button_disabled"
+            type="submit"
+            id="modal-button-save"
+            disabled
+          >
             Save
           </button>
         </form>
@@ -139,6 +148,48 @@
       </div>
     </div>
 
+    <!-- Confirmation Modal -->
+    <div class="modal" id="modal-confirm">
+      <div class="modal__container" id="confirmation-modal">
+        <button class="modal__close" id="confirmation-close"></button>
+        <h2 class="modal__heading modal__heading-confirm">Are You Sure?</h2>
+        <button
+          class="modal__save modal__button"
+          id="confirmation-modal-button"
+        >
+          Yes
+        </button>
+      </div>
+    </div>
+
+    <!-- Edit Avatar Modal -->
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__container" id="edit-avatar-modal-container">
+        <button class="modal__close" id="edit-avatar-close"></button>
+        <h2 class="modal__heading">Change Profile Picture</h2>
+        <form class="modal__form" id="edit-avatar-form">
+          <label class="modal__label" id="edit-avatar-input">
+            <input
+              type="url"
+              class="modal__input modal__input_type_url"
+              placeholder="Image URL"
+              id="avatar-url-input"
+              name="avatar"
+              required
+            />
+            <span class="modal__error" id="avatar-url-input-error"></span>
+          </label>
+          <button
+            class="modal__button modal__save modal__button_disabled"
+            id="modal-button-avatar"
+            type="submit"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
     <!-- Card image preview Modal -->
     <div class="modal" id="card-image-modal">
       <div class="modal__container" id="card-image-modal-container">
@@ -158,6 +209,5 @@
         </div>
       </li>
     </template>
-
   </body>
 </html>

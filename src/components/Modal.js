@@ -2,6 +2,10 @@ export default class Modal {
   constructor({ modalSelector }) {
     this._modalElement = document.querySelector(modalSelector);
     this._handleEscClose = this._handleEscClose.bind(this);
+
+    if (!this._modalElement) {
+      console.error(`Element not found for selector: ${modalSelector}`);
+    }
   }
 
   open() {
